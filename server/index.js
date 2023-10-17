@@ -30,8 +30,8 @@ const app = express();
 app.settings = settings;
 
 app.use(busboy());
+app.set("trust proxy", true);
 if (process.env.NODE_ENV !== "production") {
-  app.set("trust proxy", true);
   app.use(morgan("dev"));
 }
 app.use(cookieParser());
